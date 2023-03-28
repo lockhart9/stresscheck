@@ -1,0 +1,1002 @@
+{
+    "simple_stress": [{
+        "theme": "あなたの仕事についてうかがいます。最もあてはまるものに○を付けてください。",
+        "questions": [{
+            "title": null,
+            "questions": [{
+                "id": 1,
+                "text": "非常にたくさんの仕事をしなければならない",
+                "reverse": true,
+                "scores": [{
+                    "score": 1,
+                    "text": "そうだ"
+                },{
+                    "score": 2,
+                    "text": "まあそうだ"
+                },{
+                    "score": 3,
+                    "text": "ややちがう"
+                },{
+                    "score": 4,
+                    "text": "ちがう"
+                }]
+            },{
+                "id": 2,
+                "text": "時間内に仕事が処理しきれない",
+                "reverse": true,
+                "scores": [{
+                    "score": 1,
+                    "text": "そうだ"
+                },{
+                    "score": 2,
+                    "text": "まあそうだ"
+                },{
+                    "score": 3,
+                    "text": "ややちがう"
+                },{
+                    "score": 4,
+                    "text": "ちがう"
+                }]
+            },{
+                "id": 3,
+                "text": "一生懸命働かなければならない",
+                "reverse": true,
+                "scores": [{
+                    "score": 1,
+                    "text": "そうだ"
+                },{
+                    "score": 2,
+                    "text": "まあそうだ"
+                },{
+                    "score": 3,
+                    "text": "ややちがう"
+                },{
+                    "score": 4,
+                    "text": "ちがう"
+                }]
+            },{
+                "id": 4,
+                "text": "かなり注意を集中する必要がある",
+                "reverse": true,
+                "scores": [{
+                    "score": 1,
+                    "text": "そうだ"
+                },{
+                    "score": 2,
+                    "text": "まあそうだ"
+                },{
+                    "score": 3,
+                    "text": "ややちがう"
+                },{
+                    "score": 4,
+                    "text": "ちがう"
+                }]
+            },{
+                "id": 5,
+                "text": "高度の知識や技術が必要なむずかしい仕事だ",
+                "reverse": true,
+                "scores": [{
+                    "score": 1,
+                    "text": "そうだ"
+                },{
+                    "score": 2,
+                    "text": "まあそうだ"
+                },{
+                    "score": 3,
+                    "text": "ややちがう"
+                },{
+                    "score": 4,
+                    "text": "ちがう"
+                }]
+            },{
+                "id": 6,
+                "text": "勤務時間中はいつも仕事のことを考えていなければならない",
+                "reverse": true,
+                "scores": [{
+                    "score": 1,
+                    "text": "そうだ"
+                },{
+                    "score": 2,
+                    "text": "まあそうだ"
+                },{
+                    "score": 3,
+                    "text": "ややちがう"
+                },{
+                    "score": 4,
+                    "text": "ちがう"
+                }]
+            },{
+                "id": 7,
+                "text": "からだを大変よく使う仕事だ",
+                "reverse": true,
+                "scores": [{
+                    "score": 1,
+                    "text": "そうだ"
+                },{
+                    "score": 2,
+                    "text": "まあそうだ"
+                },{
+                    "score": 3,
+                    "text": "ややちがう"
+                },{
+                    "score": 4,
+                    "text": "ちがう"
+                }]
+            },{
+                "id": 8,
+                "text": "自分のペースで仕事ができる",
+                "reverse": false,
+                "scores": [{
+                    "score": 1,
+                    "text": "そうだ"
+                },{
+                    "score": 2,
+                    "text": "まあそうだ"
+                },{
+                    "score": 3,
+                    "text": "ややちがう"
+                },{
+                    "score": 4,
+                    "text": "ちがう"
+                }]
+            },{
+                "id": 9,
+                "text": "自分で仕事の順番・やり方を決めることができる",
+                "reverse": false,
+                "scores": [{
+                    "score": 1,
+                    "text": "そうだ"
+                },{
+                    "score": 2,
+                    "text": "まあそうだ"
+                },{
+                    "score": 3,
+                    "text": "ややちがう"
+                },{
+                    "score": 4,
+                    "text": "ちがう"
+                }]
+            },{
+                "id": 10,
+                "text": "職場の仕事の方針に自分の意見を反映できる",
+                "reverse": false,
+                "scores": [{
+                    "score": 1,
+                    "text": "そうだ"
+                },{
+                    "score": 2,
+                    "text": "まあそうだ"
+                },{
+                    "score": 3,
+                    "text": "ややちがう"
+                },{
+                    "score": 4,
+                    "text": "ちがう"
+                }]
+            },{
+                "id": 11,
+                "text": "自分の技能や知識を仕事で使うことが少ない",
+                "reverse": true,
+                "scores": [{
+                    "score": 1,
+                    "text": "そうだ"
+                },{
+                    "score": 2,
+                    "text": "まあそうだ"
+                },{
+                    "score": 3,
+                    "text": "ややちがう"
+                },{
+                    "score": 4,
+                    "text": "ちがう"
+                }]
+            },{
+                "id": 12,
+                "text": "私の部署内で意見のくい違いがある",
+                "reverse": true,
+                "scores": [{
+                    "score": 1,
+                    "text": "そうだ"
+                },{
+                    "score": 2,
+                    "text": "まあそうだ"
+                },{
+                    "score": 3,
+                    "text": "ややちがう"
+                },{
+                    "score": 4,
+                    "text": "ちがう"
+                }]
+            },{
+                "id": 13,
+                "text": "私の部署と他の部署とはうまが合わない",
+                "reverse": true,
+                "scores": [{
+                    "score": 1,
+                    "text": "そうだ"
+                },{
+                    "score": 2,
+                    "text": "まあそうだ"
+                },{
+                    "score": 3,
+                    "text": "ややちがう"
+                },{
+                    "score": 4,
+                    "text": "ちがう"
+                }]
+            },{
+                "id": 14,
+                "text": "私の職場の雰囲気は友好的である",
+                "reverse": false,
+                "scores": [{
+                    "score": 1,
+                    "text": "そうだ"
+                },{
+                    "score": 2,
+                    "text": "まあそうだ"
+                },{
+                    "score": 3,
+                    "text": "ややちがう"
+                },{
+                    "score": 4,
+                    "text": "ちがう"
+                }]
+            },{
+                "id": 15,
+                "text": "私の職場の作業環境（騒音、照明、温度、換気など）はよくない",
+                "reverse": true,
+                "scores": [{
+                    "score": 1,
+                    "text": "そうだ"
+                },{
+                    "score": 2,
+                    "text": "まあそうだ"
+                },{
+                    "score": 3,
+                    "text": "ややちがう"
+                },{
+                    "score": 4,
+                    "text": "ちがう"
+                }]
+            },{
+                "id": 16,
+                "text": "仕事の内容は自分にあっている",
+                "reverse": false,
+                "scores": [{
+                    "score": 1,
+                    "text": "そうだ"
+                },{
+                    "score": 2,
+                    "text": "まあそうだ"
+                },{
+                    "score": 3,
+                    "text": "ややちがう"
+                },{
+                    "score": 4,
+                    "text": "ちがう"
+                }]
+            },{
+                "id": 17,
+                "text": "働きがいのある仕事だ",
+                "reverse": false,
+                "scores": [{
+                    "score": 1,
+                    "text": "そうだ"
+                },{
+                    "score": 2,
+                    "text": "まあそうだ"
+                },{
+                    "score": 3,
+                    "text": "ややちがう"
+                },{
+                    "score": 4,
+                    "text": "ちがう"
+                }]
+            }]
+        }]
+    }, {
+        "theme": "最近 1 か月間のあなたの状態についてうかがいます。最もあてはまるものに○を付けてください。",
+        "questions": [{
+            "title": null,
+            "questions": [{
+                "id": 18,
+                "text": "活気がわいてくる",
+                "reverse": true,
+                "scores": [{
+                    "score": 1,
+                    "text": "ほとんどなかった"
+                },{
+                    "score": 2,
+                    "text": "ときどきあった"
+                },{
+                    "score": 3,
+                    "text": "しばしばあった"
+                },{
+                    "score": 4,
+                    "text": "ほとんどいつもあった"
+                }]
+            },{
+                "id": 19,
+                "text": "元気がいっぱいだ",
+                "reverse": true,
+                "scores": [{
+                    "score": 1,
+                    "text": "ほとんどなかった"
+                },{
+                    "score": 2,
+                    "text": "ときどきあった"
+                },{
+                    "score": 3,
+                    "text": "しばしばあった"
+                },{
+                    "score": 4,
+                    "text": "ほとんどいつもあった"
+                }]
+            },{
+                "id": 20,
+                "text": "生き生きする",
+                "reverse": true,
+                "scores": [{
+                    "score": 1,
+                    "text": "ほとんどなかった"
+                },{
+                    "score": 2,
+                    "text": "ときどきあった"
+                },{
+                    "score": 3,
+                    "text": "しばしばあった"
+                },{
+                    "score": 4,
+                    "text": "ほとんどいつもあった"
+                }]
+            },{
+                "id": 21,
+                "text": "怒りを感じる",
+                "reverse": false,
+                "scores": [{
+                    "score": 1,
+                    "text": "ほとんどなかった"
+                },{
+                    "score": 2,
+                    "text": "ときどきあった"
+                },{
+                    "score": 3,
+                    "text": "しばしばあった"
+                },{
+                    "score": 4,
+                    "text": "ほとんどいつもあった"
+                }]
+            },{
+                "id": 22,
+                "text": "内心腹立たしい",
+                "reverse": false,
+                "scores": [{
+                    "score": 1,
+                    "text": "ほとんどなかった"
+                },{
+                    "score": 2,
+                    "text": "ときどきあった"
+                },{
+                    "score": 3,
+                    "text": "しばしばあった"
+                },{
+                    "score": 4,
+                    "text": "ほとんどいつもあった"
+                }]
+            },{
+                "id": 23,
+                "text": "イライラしている",
+                "reverse": false,
+                "scores": [{
+                    "score": 1,
+                    "text": "ほとんどなかった"
+                },{
+                    "score": 2,
+                    "text": "ときどきあった"
+                },{
+                    "score": 3,
+                    "text": "しばしばあった"
+                },{
+                    "score": 4,
+                    "text": "ほとんどいつもあった"
+                }]
+            },{
+                "id": 24,
+                "text": "ひどく疲れた",
+                "reverse": false,
+                "scores": [{
+                    "score": 1,
+                    "text": "ほとんどなかった"
+                },{
+                    "score": 2,
+                    "text": "ときどきあった"
+                },{
+                    "score": 3,
+                    "text": "しばしばあった"
+                },{
+                    "score": 4,
+                    "text": "ほとんどいつもあった"
+                }]
+            },{
+                "id": 25,
+                "text": "へとへとだ",
+                "reverse": false,
+                "scores": [{
+                    "score": 1,
+                    "text": "ほとんどなかった"
+                },{
+                    "score": 2,
+                    "text": "ときどきあった"
+                },{
+                    "score": 3,
+                    "text": "しばしばあった"
+                },{
+                    "score": 4,
+                    "text": "ほとんどいつもあった"
+                }]
+            },{
+                "id": 26,
+                "text": "だるい",
+                "reverse": false,
+                "scores": [{
+                    "score": 1,
+                    "text": "ほとんどなかった"
+                },{
+                    "score": 2,
+                    "text": "ときどきあった"
+                },{
+                    "score": 3,
+                    "text": "しばしばあった"
+                },{
+                    "score": 4,
+                    "text": "ほとんどいつもあった"
+                }]
+            },{
+                "id": 27,
+                "text": "気がはりつめている",
+                "reverse": false,
+                "scores": [{
+                    "score": 1,
+                    "text": "ほとんどなかった"
+                },{
+                    "score": 2,
+                    "text": "ときどきあった"
+                },{
+                    "score": 3,
+                    "text": "しばしばあった"
+                },{
+                    "score": 4,
+                    "text": "ほとんどいつもあった"
+                }]
+            },{
+                "id": 28,
+                "text": "不安だ",
+                "reverse": false,
+                "scores": [{
+                    "score": 1,
+                    "text": "ほとんどなかった"
+                },{
+                    "score": 2,
+                    "text": "ときどきあった"
+                },{
+                    "score": 3,
+                    "text": "しばしばあった"
+                },{
+                    "score": 4,
+                    "text": "ほとんどいつもあった"
+                }]
+            },{
+                "id": 29,
+                "text": "落着かない",
+                "reverse": false,
+                "scores": [{
+                    "score": 1,
+                    "text": "ほとんどなかった"
+                },{
+                    "score": 2,
+                    "text": "ときどきあった"
+                },{
+                    "score": 3,
+                    "text": "しばしばあった"
+                },{
+                    "score": 4,
+                    "text": "ほとんどいつもあった"
+                }]
+            },{
+                "id": 30,
+                "text": "ゆううつだ",
+                "reverse": false,
+                "scores": [{
+                    "score": 1,
+                    "text": "ほとんどなかった"
+                },{
+                    "score": 2,
+                    "text": "ときどきあった"
+                },{
+                    "score": 3,
+                    "text": "しばしばあった"
+                },{
+                    "score": 4,
+                    "text": "ほとんどいつもあった"
+                }]
+            },{
+                "id": 31,
+                "text": "何をするのも面倒だ",
+                "reverse": false,
+                "scores": [{
+                    "score": 1,
+                    "text": "ほとんどなかった"
+                },{
+                    "score": 2,
+                    "text": "ときどきあった"
+                },{
+                    "score": 3,
+                    "text": "しばしばあった"
+                },{
+                    "score": 4,
+                    "text": "ほとんどいつもあった"
+                }]
+            },{
+                "id": 32,
+                "text": "物事に集中できない",
+                "reverse": false,
+                "scores": [{
+                    "score": 1,
+                    "text": "ほとんどなかった"
+                },{
+                    "score": 2,
+                    "text": "ときどきあった"
+                },{
+                    "score": 3,
+                    "text": "しばしばあった"
+                },{
+                    "score": 4,
+                    "text": "ほとんどいつもあった"
+                }]
+            },{
+                "id": 33,
+                "text": "気分が晴れない",
+                "reverse": false,
+                "scores": [{
+                    "score": 1,
+                    "text": "ほとんどなかった"
+                },{
+                    "score": 2,
+                    "text": "ときどきあった"
+                },{
+                    "score": 3,
+                    "text": "しばしばあった"
+                },{
+                    "score": 4,
+                    "text": "ほとんどいつもあった"
+                }]
+            },{
+                "id": 34,
+                "text": "仕事が手につかない",
+                "reverse": false,
+                "scores": [{
+                    "score": 1,
+                    "text": "ほとんどなかった"
+                },{
+                    "score": 2,
+                    "text": "ときどきあった"
+                },{
+                    "score": 3,
+                    "text": "しばしばあった"
+                },{
+                    "score": 4,
+                    "text": "ほとんどいつもあった"
+                }]
+            },{
+                "id": 35,
+                "text": "悲しいと感じる",
+                "reverse": false,
+                "scores": [{
+                    "score": 1,
+                    "text": "ほとんどなかった"
+                },{
+                    "score": 2,
+                    "text": "ときどきあった"
+                },{
+                    "score": 3,
+                    "text": "しばしばあった"
+                },{
+                    "score": 4,
+                    "text": "ほとんどいつもあった"
+                }]
+            },{
+                "id": 36,
+                "text": "めまいがする",
+                "reverse": false,
+                "scores": [{
+                    "score": 1,
+                    "text": "ほとんどなかった"
+                },{
+                    "score": 2,
+                    "text": "ときどきあった"
+                },{
+                    "score": 3,
+                    "text": "しばしばあった"
+                },{
+                    "score": 4,
+                    "text": "ほとんどいつもあった"
+                }]
+            },{
+                "id": 37,
+                "text": "体のふしぶしが痛む",
+                "reverse": false,
+                "scores": [{
+                    "score": 1,
+                    "text": "ほとんどなかった"
+                },{
+                    "score": 2,
+                    "text": "ときどきあった"
+                },{
+                    "score": 3,
+                    "text": "しばしばあった"
+                },{
+                    "score": 4,
+                    "text": "ほとんどいつもあった"
+                }]
+            },{
+                "id": 38,
+                "text": "頭が重かったり頭痛がする",
+                "reverse": false,
+                "scores": [{
+                    "score": 1,
+                    "text": "ほとんどなかった"
+                },{
+                    "score": 2,
+                    "text": "ときどきあった"
+                },{
+                    "score": 3,
+                    "text": "しばしばあった"
+                },{
+                    "score": 4,
+                    "text": "ほとんどいつもあった"
+                }]
+            },{
+                "id": 39,
+                "text": "首筋や肩がこる",
+                "reverse": false,
+                "scores": [{
+                    "score": 1,
+                    "text": "ほとんどなかった"
+                },{
+                    "score": 2,
+                    "text": "ときどきあった"
+                },{
+                    "score": 3,
+                    "text": "しばしばあった"
+                },{
+                    "score": 4,
+                    "text": "ほとんどいつもあった"
+                }]
+            },{
+                "id": 40,
+                "text": "腰が痛い",
+                "reverse": false,
+                "scores": [{
+                    "score": 1,
+                    "text": "ほとんどなかった"
+                },{
+                    "score": 2,
+                    "text": "ときどきあった"
+                },{
+                    "score": 3,
+                    "text": "しばしばあった"
+                },{
+                    "score": 4,
+                    "text": "ほとんどいつもあった"
+                }]
+            },{
+                "id": 41,
+                "text": "目が疲れる",
+                "reverse": false,
+                "scores": [{
+                    "score": 1,
+                    "text": "ほとんどなかった"
+                },{
+                    "score": 2,
+                    "text": "ときどきあった"
+                },{
+                    "score": 3,
+                    "text": "しばしばあった"
+                },{
+                    "score": 4,
+                    "text": "ほとんどいつもあった"
+                }]
+            },{
+                "id": 42,
+                "text": "動悸や息切れがする",
+                "reverse": false,
+                "scores": [{
+                    "score": 1,
+                    "text": "ほとんどなかった"
+                },{
+                    "score": 2,
+                    "text": "ときどきあった"
+                },{
+                    "score": 3,
+                    "text": "しばしばあった"
+                },{
+                    "score": 4,
+                    "text": "ほとんどいつもあった"
+                }]
+            },{
+                "id": 43,
+                "text": "胃腸の具合が悪い",
+                "reverse": false,
+                "scores": [{
+                    "score": 1,
+                    "text": "ほとんどなかった"
+                },{
+                    "score": 2,
+                    "text": "ときどきあった"
+                },{
+                    "score": 3,
+                    "text": "しばしばあった"
+                },{
+                    "score": 4,
+                    "text": "ほとんどいつもあった"
+                }]
+            },{
+                "id": 44,
+                "text": "食欲がない",
+                "reverse": false,
+                "scores": [{
+                    "score": 1,
+                    "text": "ほとんどなかった"
+                },{
+                    "score": 2,
+                    "text": "ときどきあった"
+                },{
+                    "score": 3,
+                    "text": "しばしばあった"
+                },{
+                    "score": 4,
+                    "text": "ほとんどいつもあった"
+                }]
+            },{
+                "id": 45,
+                "text": "便秘や下痢をする",
+                "reverse": false,
+                "scores": [{
+                    "score": 1,
+                    "text": "ほとんどなかった"
+                },{
+                    "score": 2,
+                    "text": "ときどきあった"
+                },{
+                    "score": 3,
+                    "text": "しばしばあった"
+                },{
+                    "score": 4,
+                    "text": "ほとんどいつもあった"
+                }]
+            },{
+                "id": 46,
+                "text": "よく眠れない",
+                "reverse": false,
+                "scores": [{
+                    "score": 1,
+                    "text": "ほとんどなかった"
+                },{
+                    "score": 2,
+                    "text": "ときどきあった"
+                },{
+                    "score": 3,
+                    "text": "しばしばあった"
+                },{
+                    "score": 4,
+                    "text": "ほとんどいつもあった"
+                }]
+            }]
+        }]
+    },{
+        "theme": "あなたの周りの方々についてうかがいます。最もあてはまるものに○を付けてください。",
+        "questions": [{
+            "title": "次の人たちはどのくらい気軽に話ができますか？",
+            "questions": [{
+                "id": 47,
+                "text": "上司",
+                "reverse": false,
+                "scores": [{
+                    "score": 1,
+                    "text": "非常に"
+                },{
+                    "score": 2,
+                    "text": "かなり"
+                },{
+                    "score": 3,
+                    "text": "多少に"
+                },{
+                    "score": 4,
+                    "text": "全くない"
+                }]
+            },{
+                "id": 48,
+                "text": "職場の同僚",
+                "reverse": false,
+                "scores": [{
+                    "score": 1,
+                    "text": "非常に"
+                },{
+                    "score": 2,
+                    "text": "かなり"
+                },{
+                    "score": 3,
+                    "text": "多少に"
+                },{
+                    "score": 4,
+                    "text": "全くない"
+                }]
+            },{
+                "id": 49,
+                "text": "配偶者、家族、友人等",
+                "reverse": false,
+                "scores": [{
+                    "score": 1,
+                    "text": "非常に"
+                },{
+                    "score": 2,
+                    "text": "かなり"
+                },{
+                    "score": 3,
+                    "text": "多少に"
+                },{
+                    "score": 4,
+                    "text": "全くない"
+                }]
+            }]
+        },{
+            "title": "あなたが困った時、次の人たちはどのくらい頼りになりますか？",
+            "questions": [{
+                "id": 50,
+                "text": "上司",
+                "reverse": false,
+                "scores": [{
+                    "score": 1,
+                    "text": "非常に"
+                },{
+                    "score": 2,
+                    "text": "かなり"
+                },{
+                    "score": 3,
+                    "text": "多少に"
+                },{
+                    "score": 4,
+                    "text": "全くない"
+                }]
+            },{
+                "id": 51,
+                "text": "職場の同僚",
+                "reverse": false,
+                "scores": [{
+                    "score": 1,
+                    "text": "非常に"
+                },{
+                    "score": 2,
+                    "text": "かなり"
+                },{
+                    "score": 3,
+                    "text": "多少に"
+                },{
+                    "score": 4,
+                    "text": "全くない"
+                }]
+            },{
+                "id": 52,
+                "text": "配偶者、家族、友人等",
+                "reverse": false,
+                "scores": [{
+                    "score": 1,
+                    "text": "非常に"
+                },{
+                    "score": 2,
+                    "text": "かなり"
+                },{
+                    "score": 3,
+                    "text": "多少に"
+                },{
+                    "score": 4,
+                    "text": "全くない"
+                }]
+            }]
+        },{
+            "title": "あなたの個人的な問題を相談したら、次の人たちはどのくらいきいてくれますか？",
+            "questions": [{
+                "id": 53,
+                "text": "上司",
+                "reverse": false,
+                "scores": [{
+                    "score": 1,
+                    "text": "非常に"
+                },{
+                    "score": 2,
+                    "text": "かなり"
+                },{
+                    "score": 3,
+                    "text": "多少に"
+                },{
+                    "score": 4,
+                    "text": "全くない"
+                }]
+            },{
+                "id": 54,
+                "text": "職場の同僚",
+                "reverse": false,
+                "scores": [{
+                    "score": 1,
+                    "text": "非常に"
+                },{
+                    "score": 2,
+                    "text": "かなり"
+                },{
+                    "score": 3,
+                    "text": "多少に"
+                },{
+                    "score": 4,
+                    "text": "全くない"
+                }]
+            },{
+                "id": 55,
+                "text": "配偶者、家族、友人等",
+                "reverse": false,
+                "scores": [{
+                    "score": 1,
+                    "text": "非常に"
+                },{
+                    "score": 2,
+                    "text": "かなり"
+                },{
+                    "score": 3,
+                    "text": "多少に"
+                },{
+                    "score": 4,
+                    "text": "全くない"
+                }]
+            }]
+        }]
+    }, {
+        "theme": "満足度について",
+        "questions": [{
+            "title": null,
+            "questions": [{
+                "id": 56,
+                "text": "仕事に満足だ",
+                "reverse": false,
+                "scores": [{
+                    "score": 1,
+                    "text": "満足"
+                },{
+                    "score": 2,
+                    "text": "まあ満足"
+                },{
+                    "score": 3,
+                    "text": "やや不満足"
+                },{
+                    "score": 4,
+                    "text": "不満足"
+                }]
+            },{
+                "id": 57,
+                "text": "家庭生活に満足だ",
+                "reverse": false,
+                "scores": [{
+                    "score": 1,
+                    "text": "満足"
+                },{
+                    "score": 2,
+                    "text": "まあ満足"
+                },{
+                    "score": 3,
+                    "text": "やや不満足"
+                },{
+                    "score": 4,
+                    "text": "不満足"
+                }]
+            }]
+        }]
+    }]
+}
