@@ -1,3 +1,5 @@
+use std::io::BufRead;
+
 use once_cell::sync::Lazy;
 use serde::Deserialize;
 
@@ -19,12 +21,6 @@ pub struct Question {
     pub text: String,
     pub reverse: bool,
     pub scores: Vec<Score>,
-}
-
-impl From<Question> for u32 {
-    fn from(q: Question) -> Self {
-        q.id
-    }
 }
 
 #[derive(Debug, Deserialize)]
@@ -168,6 +164,9 @@ impl AnswerStore {
         if self.values.iter().any(|&value| value == 0) {
             return Err(Error::NotFullfilled);
         }
+        if self.values.iter().any(|&value| value > 4) {
+            return Err(Error::IllegalAnswer);
+        }
         let values = self
             .values
             .iter()
@@ -214,17 +213,20 @@ impl AnswerStore {
         if self.values.iter().any(|&value| value == 0) {
             return Err(Error::NotFullfilled);
         }
+        if self.values.iter().any(|&value| value > 4) {
+            return Err(Error::IllegalAnswer);
+        }
         IntermediateConversionScore {
             mental_work_stress_volume: 15 - self.values.iter().take(3).sum::<u8>(),
             mental_work_stress_quality: 15 - self.values.iter().skip(3).take(3).sum::<u8>(),
-            aware_physical_stress: 5 - self.values.get(6).ok_or(Error::IllegalAnswer)?,
+            aware_physical_stress: 5 - self.values.get(6).ok_or(Error::NotFullfilled)?,
             work_people_stress: 10 - self.values.iter().skip(11).take(2).sum::<u8>()
-                + self.values.get(13).ok_or(Error::IllegalAnswer)?,
-            work_env_stress: 5 - self.values.get(14).ok_or(Error::IllegalAnswer)?,
+                + self.values.get(13).ok_or(Error::NotFullfilled)?,
+            work_env_stress: 5 - self.values.get(14).ok_or(Error::NotFullfilled)?,
             work_control: 15 - self.values.iter().skip(7).take(3).sum::<u8>(),
-            skill_apply: (*self.values.get(10).ok_or(Error::IllegalAnswer)?),
-            work_apply: 5 - self.values.get(15).ok_or(Error::IllegalAnswer)?,
-            decent_work: 5 - self.values.get(16).ok_or(Error::IllegalAnswer)?,
+            skill_apply: (*self.values.get(10).ok_or(Error::NotFullfilled)?),
+            work_apply: 5 - self.values.get(15).ok_or(Error::NotFullfilled)?,
+            decent_work: 5 - self.values.get(16).ok_or(Error::NotFullfilled)?,
             vitality: self.values.iter().skip(17).take(3).sum::<u8>(),
             iraira: self.values.iter().skip(20).take(3).sum::<u8>(),
             tired: self.values.iter().skip(23).take(3).sum::<u8>(),
@@ -232,17 +234,17 @@ impl AnswerStore {
             depressed: self.values.iter().skip(29).take(6).sum::<u8>(),
             physical_complaint: self.values.iter().skip(35).take(11).sum::<u8>(),
             boss_support: 15
-                - (self.values.get(46).ok_or(Error::IllegalAnswer)?
-                    + self.values.get(49).ok_or(Error::IllegalAnswer)?
-                    + self.values.get(52).ok_or(Error::IllegalAnswer)?),
+                - (self.values.get(46).ok_or(Error::NotFullfilled)?
+                    + self.values.get(49).ok_or(Error::NotFullfilled)?
+                    + self.values.get(52).ok_or(Error::NotFullfilled)?),
             colleague_support: 15
-                - (self.values.get(47).ok_or(Error::IllegalAnswer)?
-                    + self.values.get(50).ok_or(Error::IllegalAnswer)?
-                    + self.values.get(53).ok_or(Error::IllegalAnswer)?),
+                - (self.values.get(47).ok_or(Error::NotFullfilled)?
+                    + self.values.get(50).ok_or(Error::NotFullfilled)?
+                    + self.values.get(53).ok_or(Error::NotFullfilled)?),
             family_support: 15
-                - (self.values.get(48).ok_or(Error::IllegalAnswer)?
-                    + self.values.get(51).ok_or(Error::IllegalAnswer)?
-                    + self.values.get(54).ok_or(Error::IllegalAnswer)?),
+                - (self.values.get(48).ok_or(Error::NotFullfilled)?
+                    + self.values.get(51).ok_or(Error::NotFullfilled)?
+                    + self.values.get(54).ok_or(Error::NotFullfilled)?),
         }
         .try_into()
     }
@@ -542,8 +544,108 @@ impl Stress for ConversionScore {
     }
 }
 
+#[derive(Debug, Default, Deserialize)]
+struct BulkRow {
+    /// ユーザ特定キー
+    id: String,
+    q_1: u8,
+    q_2: u8,
+    q_3: u8,
+    q_4: u8,
+    q_5: u8,
+    q_6: u8,
+    q_7: u8,
+    q_8: u8,
+    q_9: u8,
+    q_10: u8,
+    q_11: u8,
+    q_12: u8,
+    q_13: u8,
+    q_14: u8,
+    q_15: u8,
+    q_16: u8,
+    q_17: u8,
+    q_18: u8,
+    q_19: u8,
+    q_20: u8,
+    q_21: u8,
+    q_22: u8,
+    q_23: u8,
+    q_24: u8,
+    q_25: u8,
+    q_26: u8,
+    q_27: u8,
+    q_28: u8,
+    q_29: u8,
+    q_30: u8,
+    q_31: u8,
+    q_32: u8,
+    q_33: u8,
+    q_34: u8,
+    q_35: u8,
+    q_36: u8,
+    q_37: u8,
+    q_38: u8,
+    q_39: u8,
+    q_40: u8,
+    q_41: u8,
+    q_42: u8,
+    q_43: u8,
+    q_44: u8,
+    q_45: u8,
+    q_46: u8,
+    q_47: u8,
+    q_48: u8,
+    q_49: u8,
+    q_50: u8,
+    q_51: u8,
+    q_52: u8,
+    q_53: u8,
+    q_54: u8,
+    q_55: u8,
+    q_56: u8,
+    q_57: u8,
+}
+
+impl From<BulkRow> for (String, AnswerStore) {
+    fn from(row: BulkRow) -> Self {
+        (
+            row.id,
+            AnswerStore {
+                values: [
+                    row.q_1, row.q_2, row.q_3, row.q_4, row.q_5, row.q_6, row.q_7, row.q_8,
+                    row.q_9, row.q_10, row.q_11, row.q_12, row.q_13, row.q_14, row.q_15, row.q_16,
+                    row.q_17, row.q_18, row.q_19, row.q_20, row.q_21, row.q_22, row.q_23, row.q_24,
+                    row.q_25, row.q_26, row.q_27, row.q_28, row.q_29, row.q_30, row.q_31, row.q_32,
+                    row.q_33, row.q_34, row.q_35, row.q_36, row.q_37, row.q_38, row.q_39, row.q_40,
+                    row.q_41, row.q_42, row.q_43, row.q_44, row.q_45, row.q_46, row.q_47, row.q_48,
+                    row.q_49, row.q_50, row.q_51, row.q_52, row.q_53, row.q_54, row.q_55, row.q_56,
+                    row.q_57,
+                ],
+                offset: 57,
+            },
+        )
+    }
+}
+
+pub fn read_bulk<T>(reader: T) -> Vec<Result<(String, AnswerStore), Error>>
+where
+    T: BufRead,
+{
+    let mut reader = csv::Reader::from_reader(reader);
+    reader
+        .deserialize()
+        .map(|row: Result<BulkRow, _>| row.map(|row| row.into()))
+        .map(|row| row.map_err(Error::CSVReadError))
+        .collect::<Vec<Result<(String, AnswerStore), Error>>>()
+}
+
 #[derive(Debug)]
 pub enum Error {
+    /// IOエラー
+    IOError(std::io::Error),
+    /// CSV Read Error
+    CSVReadError(csv::Error),
     /// 57設問ではない
     IllegalQuestion,
     /// 回答選択肢が違反
@@ -552,8 +654,16 @@ pub enum Error {
     NotFullfilled,
 }
 
+impl From<std::io::Error> for Error {
+    fn from(error: std::io::Error) -> Self {
+        Error::IOError(error)
+    }
+}
+
 #[cfg(test)]
 mod test {
+    use std::io::{BufReader, Cursor};
+
     use super::*;
 
     #[test]
@@ -733,5 +843,28 @@ mod test {
         let mut store = AnswerStore::default();
         assert!(store.push(1).is_ok());
         assert!(store.to_conversion_score().is_err());
+    }
+
+    #[test]
+    fn test_read_bulk() {
+        let cursor = Cursor::new(
+            r#"id,"q_1",q_2,q_3,q_4,q_5,q_6,q_7,q_8,q_9,q_10,q_11,q_12,q_13,q_14,q_15,q_16,q_17,q_18,q_19,q_20,q_21,q_22,q_23,q_24,q_25,q_26,q_27,q_28,q_29,q_30,q_31,q_32,q_33,q_34,q_35,q_36,q_37,q_38,q_39,q_40,q_41,q_42,q_43,q_44,q_45,q_46,q_47,q_48,q_49,q_50,q_51,q_52,q_53,q_54,q_55,q_56,q_57
+
+"1",1,2,3,1,2,3,1,2,3,1,2,3,1,2,3,1,2,3,1,2,3,1,2,3,1,2,3,1,2,3,1,2,3,1,2,3,1,2,3,1,2,3,1,2,3,1,2,3,1,2,3,1,2,3,1,2,3
+"2",,2,3,1,2,3,1,2,3,1,2,3,1,2,3,1,2,3,1,2,3,1,2,3,1,2,3,1,2,3,1,2,3,1,2,3,1,2,3,1,2,3,1,2,3,1,2,3,1,2,3,1,2,3,1,2,3"#,
+        );
+        let reader = BufReader::new(cursor);
+        let mut iter = read_bulk(reader).into_iter();
+        let line = iter.next().unwrap();
+        assert!(line.is_ok());
+        assert_eq!(line.as_ref().unwrap().0, "1".to_string());
+        assert_eq!(line.as_ref().unwrap().1.values[0], 1);
+        assert_eq!(line.as_ref().unwrap().1.values[56], 3);
+        assert_eq!(line.as_ref().unwrap().1.values.get(57), None);
+        let line = iter.next().unwrap();
+        assert!(line.is_err());
+        let Err(e) = line else { panic!() };
+        assert!(matches!(e, Error::CSVReadError(_)));
+        assert!(iter.next().is_none());
     }
 }
