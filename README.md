@@ -1,5 +1,7 @@
 # stresscheck
 
+[![simple_stresscheck](https://github.com/lockhart9/stresscheck/actions/workflows/rust.yml/badge.svg)](https://github.com/lockhart9/stresscheck/actions/workflows/rust.yml)
+
 This repository is for Japanese only.
 
 日本の厚生労働省で規定されている職業性ストレス簡易調査(57設問)のRust実装です。
@@ -10,4 +12,8 @@ This repository is for Japanese only.
 ## 注意事項
 
 * 本ライブラリは実運用を目的としたものではありません
-* 国が定めるストレスチェック制度に似ついては [こちら](https://www.mhlw.go.jp/bunya/roudoukijun/anzeneisei12/index.html) を参照ください
+* 国が定めるストレスチェック制度にについては [こちら](https://www.mhlw.go.jp/bunya/roudoukijun/anzeneisei12/index.html) を参照ください
+
+## ライセンス
+
+MIT License
