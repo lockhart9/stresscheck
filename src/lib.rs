@@ -87,12 +87,12 @@ impl SimpleStress {
 }
 
 #[derive(Debug, Clone)]
-pub struct AnswerStore {
+pub struct StressCheck {
     values: [u8; 57],
     offset: usize,
 }
 
-impl Default for AnswerStore {
+impl Default for StressCheck {
     fn default() -> Self {
         Self {
             values: [0; 57],
@@ -101,7 +101,7 @@ impl Default for AnswerStore {
     }
 }
 
-impl AnswerStore {
+impl StressCheck {
     /// 回答を格納する
     /// 1〜4の回答番号以外は認めない。
     pub fn push(&mut self, score: u8) -> Result<(), Error> {
@@ -160,7 +160,7 @@ impl AnswerStore {
     /// ㋐ 領域Ｂの合計点数が 77 点以上（最高点は４×29＝116 点）であること
     /// ㋑ 領域ＡとＣの合算の合計点数が76点以上（最高点は４×17＋４×９＝104
     /// 点）であり、かつ領域Ｂの合計点数が 63 点以上であること
-    pub fn to_sumup_score(&self) -> Result<SumupScore, Error> {
+    pub fn to_sumup_score(&self) -> Result<DefaultScore, Error> {
         if self.values.iter().any(|&value| value == 0) {
             return Err(Error::NotFullfilled);
         }
@@ -173,7 +173,7 @@ impl AnswerStore {
             .enumerate()
             .map(|(index, &value)| reverse_if((index + 1, value)))
             .collect::<Vec<u8>>();
-        Ok(SumupScore {
+        Ok(DefaultScore {
             sum_a: values.iter().take(17).sum(),
             sum_b: values.iter().skip(17).take(29).sum(),
             sum_c: values.iter().skip(46).take(9).sum(),
@@ -209,14 +209,14 @@ impl AnswerStore {
     /// ㋐ 領域Ｂの評価点の合計が 12 点以下（最低点は１×６＝６点）であること
     /// ㋑ 領域ＡとＣの合算の評価点の合計が 26 点以下（最低点は１×９＋１×３
     /// ＝12 点）であり、かつ領域Ｂの評価点の合計が 17 点以下であること
-    pub fn to_conversion_score(&self) -> Result<ConversionScore, Error> {
+    pub fn to_conversion_score(&self) -> Result<ConvertedScore, Error> {
         if self.values.iter().any(|&value| value == 0) {
             return Err(Error::NotFullfilled);
         }
         if self.values.iter().any(|&value| value > 4) {
             return Err(Error::IllegalAnswer);
         }
-        IntermediateConversionScore {
+        IntermediateConvertedScore {
             mental_work_stress_volume: 15 - self.values.iter().take(3).sum::<u8>(),
             mental_work_stress_quality: 15 - self.values.iter().skip(3).take(3).sum::<u8>(),
             aware_physical_stress: 5 - self.values.get(6).ok_or(Error::NotFullfilled)?,
@@ -266,13 +266,13 @@ pub trait Stress {
 }
 
 #[derive(Debug)]
-pub struct SumupScore {
+pub struct DefaultScore {
     sum_a: u8,
     sum_b: u8,
     sum_c: u8,
 }
 
-impl Stress for SumupScore {
+impl Stress for DefaultScore {
     fn has_stress(&self) -> bool {
         self.sum_b >= 77 || (self.sum_a + self.sum_c >= 76 && self.sum_b >= 63)
     }
@@ -282,7 +282,7 @@ impl Stress for SumupScore {
     }
 }
 
-pub struct IntermediateConversionScore {
+struct IntermediateConvertedScore {
     /// 心理的な仕事の負担（量）
     mental_work_stress_volume: u8,
     /// 心理的な仕事の負担（質）
@@ -325,11 +325,11 @@ pub struct IntermediateConversionScore {
     family_support: u8,
 }
 
-impl TryFrom<IntermediateConversionScore> for ConversionScore {
+impl TryFrom<IntermediateConvertedScore> for ConvertedScore {
     type Error = Error;
 
-    fn try_from(score: IntermediateConversionScore) -> Result<Self, Self::Error> {
-        Ok(ConversionScore {
+    fn try_from(score: IntermediateConvertedScore) -> Result<Self, Self::Error> {
+        Ok(ConvertedScore {
             mental_work_stress_volume: match score.mental_work_stress_volume {
                 ref score if (3..=5).contains(score) => 5,
                 ref score if (6..=7).contains(score) => 4,
@@ -473,7 +473,7 @@ impl TryFrom<IntermediateConversionScore> for ConversionScore {
     }
 }
 
-pub struct ConversionScore {
+pub struct ConvertedScore {
     /// 心理的な仕事の負担（量）
     mental_work_stress_volume: u8,
     /// 心理的な仕事の負担（質）
@@ -516,7 +516,7 @@ pub struct ConversionScore {
     family_support: u8,
 }
 
-impl Stress for ConversionScore {
+impl Stress for ConvertedScore {
     fn has_stress(&self) -> bool {
         let (sum_a, sum_b, sum_c) = self.scores();
         sum_b <= 12 || (sum_a + sum_c <= 26 && sum_b <= 17)
@@ -607,11 +607,11 @@ struct BulkRow {
     q_57: u8,
 }
 
-impl From<BulkRow> for (String, AnswerStore) {
+impl From<BulkRow> for (String, StressCheck) {
     fn from(row: BulkRow) -> Self {
         (
             row.id,
-            AnswerStore {
+            StressCheck {
                 values: [
                     row.q_1, row.q_2, row.q_3, row.q_4, row.q_5, row.q_6, row.q_7, row.q_8,
                     row.q_9, row.q_10, row.q_11, row.q_12, row.q_13, row.q_14, row.q_15, row.q_16,
@@ -628,7 +628,7 @@ impl From<BulkRow> for (String, AnswerStore) {
     }
 }
 
-pub fn read_bulk<T>(reader: T) -> Vec<Result<(String, AnswerStore), Error>>
+pub fn read_bulk<T>(reader: T) -> Vec<Result<(String, StressCheck), Error>>
 where
     T: BufRead,
 {
@@ -637,7 +637,7 @@ where
         .deserialize()
         .map(|row: Result<BulkRow, _>| row.map(|row| row.into()))
         .map(|row| row.map_err(Error::CSVReadError))
-        .collect::<Vec<Result<(String, AnswerStore), Error>>>()
+        .collect::<Vec<Result<(String, StressCheck), Error>>>()
 }
 
 #[derive(Debug)]
@@ -713,7 +713,7 @@ mod test {
 
     #[test]
     fn test_answer_store_low() {
-        let mut store = AnswerStore::default();
+        let mut store = StressCheck::default();
         for _ in 0..57 {
             assert!(store.push(1).is_ok());
         }
@@ -725,7 +725,7 @@ mod test {
 
     #[test]
     fn test_answer_store_high() {
-        let mut store = AnswerStore::default();
+        let mut store = StressCheck::default();
         for _ in 0..57 {
             assert!(store.push(4).is_ok());
         }
@@ -737,7 +737,7 @@ mod test {
 
     #[test]
     fn test_answer_not_fullfilled() {
-        let mut store = AnswerStore::default();
+        let mut store = StressCheck::default();
         for _ in 0..56 {
             assert!(store.push(1).is_ok());
         }
@@ -746,7 +746,7 @@ mod test {
 
     #[test]
     fn test_answer_exceeded() {
-        let mut store = AnswerStore::default();
+        let mut store = StressCheck::default();
         for _ in 0..57 {
             assert!(store.push(1).is_ok());
         }
@@ -755,7 +755,7 @@ mod test {
 
     #[test]
     fn test_insert() {
-        let mut store = AnswerStore::default();
+        let mut store = StressCheck::default();
         assert!(store.insert(0, 1).is_err());
         assert!(store.insert(1, 1).is_ok());
         assert!(store.insert(57, 1).is_ok());
@@ -765,35 +765,35 @@ mod test {
 
     #[test]
     fn test_sumup_score_stress() {
-        let score = SumupScore {
+        let score = DefaultScore {
             sum_a: 17,
             sum_b: 76,
             sum_c: 9,
         };
         assert!(!score.has_stress());
 
-        let score = SumupScore {
+        let score = DefaultScore {
             sum_a: 17,
             sum_b: 77,
             sum_c: 9,
         };
         assert!(score.has_stress());
 
-        let score = SumupScore {
+        let score = DefaultScore {
             sum_a: 46,
             sum_b: 62,
             sum_c: 30,
         };
         assert!(!score.has_stress());
 
-        let score = SumupScore {
+        let score = DefaultScore {
             sum_a: 46,
             sum_b: 63,
             sum_c: 30,
         };
         assert!(score.has_stress());
 
-        let score = SumupScore {
+        let score = DefaultScore {
             sum_a: 45,
             sum_b: 63,
             sum_c: 30,
@@ -803,7 +803,7 @@ mod test {
 
     #[test]
     fn test_conversion_score() {
-        let mut store = AnswerStore::default();
+        let mut store = StressCheck::default();
         for _ in 0..57 {
             assert!(store.push(1).is_ok());
         }
@@ -840,7 +840,7 @@ mod test {
 
     #[test]
     fn test_conversion_score_answer_not_fullfilled() {
-        let mut store = AnswerStore::default();
+        let mut store = StressCheck::default();
         assert!(store.push(1).is_ok());
         assert!(store.to_conversion_score().is_err());
     }

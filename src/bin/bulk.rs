@@ -13,7 +13,7 @@ fn main() -> Result<(), Error> {
     let reader = BufReader::new(File::open(&args.path)?);
     for row in read_bulk(reader) {
         match row {
-            Ok((id, store)) => match store.to_sumup_score() {
+            Ok((id, store)) => match store.to_conversion_score() {
                 Ok(score) => {
                     println!(
                         "id = {}, scores = {:?}, has_stress = {}",

@@ -1,11 +1,11 @@
 use std::io::stdin;
 
 use simple_stresscheck::Stress;
-use simple_stresscheck::{AnswerStore, Error, QUESTIONS};
+use simple_stresscheck::{Error, StressCheck, QUESTIONS};
 
 fn main() {
     let mut buffer = String::new();
-    let mut store = AnswerStore::default();
+    let mut store = StressCheck::default();
 
     for theme in &QUESTIONS.simple_stress {
         println!("{}", theme.theme);
@@ -43,7 +43,7 @@ fn main() {
     // dbg!("{} {}", score, store);
 }
 
-fn store_answer(value: &str, store: &mut AnswerStore) -> Result<(), Error> {
+fn store_answer(value: &str, store: &mut StressCheck) -> Result<(), Error> {
     let value = value.parse::<u8>().map_err(|_| Error::IllegalAnswer)?;
     store.push(value)?;
     Ok(())
